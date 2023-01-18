@@ -30,7 +30,7 @@ form > button{
     height: 31px;
     border-radius: 8px;
     margin-top: 9px;
-    margin-left: -5px;
+    
 }
 
 form > button:hover{
@@ -43,7 +43,7 @@ form > button:hover{
     border-radius: 8px;
     background-color:rgb(53, 6, 140);
     border:none;
-    position: absolute;
+    position: fixed;
     bottom:0;
     left: 46%;
     color: #fff;
@@ -69,7 +69,8 @@ form > button:hover{
 <div class="gallery">
   
 </div>
-<button type="button" class="load-more">Load more...</button>
+<button type="button" class="load-more is-hidden">Load more...</button>
+<p class="finish ">We're sorry, but you've reached the end of search results.</p>
 <script src="./index.js" type="module"></script>
   </body>
 </html>

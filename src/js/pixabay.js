@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-// import include from 'posthtml-include';
+
 
 export class PixabayAPI {
   static BASE_URL = 'https://pixabay.com/api/';
@@ -8,22 +8,26 @@ export class PixabayAPI {
 
   constructor() {
     this.page = 1;
-    this.q = null;
+    this.query = null;
+    this.queryAmt = 40;
+    
   }
 
-  fetchQueryPhotos() {
+  async fetchQueryPhotos() {
     const paramsPhoto = {
       params: {
         key: PixabayAPI.API_KEY,
-        q: this.q,
+        q: this.query,
         page: this.page,
         image_type: 'photo',
         orientation: 'horizontal',
-        safesearch: 'true',
-        per_page: 40,
+        safesearch: true,
+        per_page: this.queryAmt,
       },
     };
 
-    return axios.get('PixabayAPI.BASE_URL?PixabayAPI.API_KEY' & paramsPhoto).then(function(res)  {console.log(res)}).catch(function (error) {console.log(error)})
+    const {data} = await axios.get(`${PixabayAPI.BASE_URL}`, paramsPhoto)
+    return data;
+    console.log(data)
   }
 }
