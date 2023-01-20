@@ -1,0 +1,60 @@
+form {
+  text-align: center;
+}
+input {
+  width: 300px;
+  height: 31px;
+  margin-top: 9px;
+  border-radius: 8px;
+}
+form > button {
+  width: 36px;
+  height: 31px;
+  border-radius: 8px;
+  margin-top: 9px;
+}
+
+form > button:hover {
+  background-color: rgb(202, 201, 201);
+  cursor: pointer;
+}
+.load-more {
+  width: 125px;
+  height: 46px;
+  border-radius: 8px;
+  background-color: rgb(53, 6, 140);
+  border: none;
+  color: #fff;
+   display: block;
+    margin: 40px auto;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.photo-card {
+  width: calc((100% - 30px) / 4);
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.info-item {
+  color: #000;
+  text-align: center;
+  font-size: 13px;
+}
+
+.finish {
+  text-align: center;
+}
+
+

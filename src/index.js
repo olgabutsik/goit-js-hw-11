@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { PixabayAPI } from './js/pixabay';
-import { createCards } from './js/photo-cards.js';
+import { createCards } from './js/photo-cards';
+import { simpleLightboxGallery } from './js/simple-lightbox.js';
 
 const searchForm = document.querySelector('.search-form');
 const inputArea = document.querySelector('input[name="searchQuery"]');
@@ -13,7 +14,7 @@ searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onClick);
 
 
-const pixabayApi = new PixabayAPI();
+let pixabayApi = new PixabayAPI();
 // console.log(pixabayApi);
 
 async function addPhotos() {
@@ -25,7 +26,7 @@ async function addPhotos() {
         console.log(error);
     }
 };
-addPhotos();
+
 
 async function onSearch(e) {
     e.preventDefault();
@@ -60,6 +61,7 @@ async function onSearch(e) {
 
         notifySuccess(totalHits);
         galleryList.innerHTML = createCards(hits)
+        simpleLightboxGallery.refresh();
     } catch (err) {
         console.log(err);
     } finally {
@@ -71,7 +73,7 @@ async function onClick() {
     loadMoreBtn.disabled = true;
     
     
-    pixabayApi += 1;
+    pixabayApi.page += 1;
 
     try {
        const  {hits}  = await pixabayApi.fetchQueryPhotos();
@@ -82,8 +84,8 @@ async function onClick() {
                "We're sorry, but you've reached the end of search results."
              );
         }
-        gallery.insertAdjacentHTML('beforeend', createCards(hits));
-
+        galleryList.insertAdjacentHTML('beforeend', createCards(hits));
+        simpleLightboxGallery.refresh();
     } catch (err) {
         console.log(err);
     } finally {

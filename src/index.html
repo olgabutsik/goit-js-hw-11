@@ -8,69 +8,26 @@
     <script type="module" src="./index.js"></script>
   </head>
 
-   <style>
-    body{
-      background-color: rgb(197, 194, 194);
-    }
-    .container{
-      height: 50px;
-      background-color:rgb(53, 6, 140);
-    }
-    form{
-      text-align: center;
-    }
-    input{
-    width: 300px;
-    height: 31px;
-    margin-top: 9px;
-    border-radius: 8px;
-}
-form > button{
-      width: 36px;
-    height: 31px;
-    border-radius: 8px;
-    margin-top: 9px;
-    
-}
-
-form > button:hover{
-  background-color: rgb(202, 201, 201);
-  cursor: pointer;
-}
-  .load-more{
-    width: 125px;
-    height: 46px;
-    border-radius: 8px;
-    background-color:rgb(53, 6, 140);
-    border:none;
-    position: fixed;
-    bottom:0;
-    left: 46%;
-    color: #fff;
-  }
-    
-   </style>
-
   <body>
-    
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="./partials/example.html"></include> -->
     <div class="container">
-    <form class="search-form" id="search-form">
-  <input
-    type="text"
-    name="searchQuery"
-    autocomplete="off"
-    placeholder="Search images..."
-  />
-  <button type="submit">🔍</button>
-</form>
-</div>
-<div class="gallery">
-  
-</div>
-<button type="button" class="load-more is-hidden">Load more...</button>
-<p class="finish ">We're sorry, but you've reached the end of search results.</p>
-<script src="./index.js" type="module"></script>
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit">🔍</button>
+      </form>
+
+      <div class="gallery"></div>
+      <button type="button" class="load-more is-hidden">Load more...</button>
+      <p class="finish is-hidden">
+        We're sorry, but you've reached the end of search results.
+      </p>
+    </div>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
