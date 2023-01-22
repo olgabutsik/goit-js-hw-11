@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-
+const MAX_ALLOWED_PICS = 500;
 export class PixabayAPI {
   static BASE_URL = 'https://pixabay.com/api/';
   static API_KEY = '32928246-6ae7869637525638a20b8d67d';
@@ -22,12 +22,15 @@ export class PixabayAPI {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
-        per_page: this.queryAmt,
+        per_page: Math.min(
+          this.queryAmt,
+          MAX_ALLOWED_PICS - this.page * this.queryAmt
+        ),
       },
     };
 
     const {data} = await axios.get(`${PixabayAPI.BASE_URL}`, paramsPhoto)
     return data;
-    console.log(data)
+    
   }
 }

@@ -25,9 +25,14 @@ form > button:hover {
   background-color: rgb(53, 6, 140);
   border: none;
   color: #fff;
-   display: block;
-    margin: 40px auto;
+  display: block;
+  margin: 40px auto;
 }
+
+.load-more:hover {
+  background-color: rgb(83, 61, 125);
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -55,6 +60,7 @@ form > button:hover {
 
 .finish {
   text-align: center;
+  margin-top: 40px;
+  font-size: 25px;
+  color: rgb(105, 102, 102);
 }
-
-

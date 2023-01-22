@@ -78,11 +78,13 @@ async function onClick() {
     try {
        const  {hits}  = await pixabayApi.fetchQueryPhotos();
         
-        if (hits.length === 0) {
+        if (hits.length === 0 || hits.length < 40) {
             loadMoreBtn.classList.add('is-hidden');
+            finishMessage.classList.remove('is-hidden')
              Notify.info(
                "We're sorry, but you've reached the end of search results."
-             );
+            );
+            
         }
         galleryList.insertAdjacentHTML('beforeend', createCards(hits));
         simpleLightboxGallery.refresh();
@@ -97,3 +99,7 @@ async function onClick() {
 function notifySuccess(amount) {
       Notify.success(`Hooray! We found ${amount} images.`);
 }
+
+
+
+
