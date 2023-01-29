@@ -1,12 +1,12 @@
 body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-color: rgb(197, 194, 194);
+  background-color: rgb(230, 243, 244);
 }
 
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 200px;
 }
 
 h1,
@@ -44,6 +44,7 @@ button {
   margin-right: auto;
   height: 50px;
   background-color: rgb(53, 6, 140);
+  border-radius: 5px;
 }
 
 .is-hidden {
